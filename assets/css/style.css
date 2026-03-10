@@ -1280,6 +1280,7 @@ font-weight:700;
 .buy-btn:hover { background: #2E54B5; }
 
 
+
 @media (max-width: 1280px) {
   .menu { gap: 28px; }
   .menu-item > a { font-size: 17px; }
