@@ -306,24 +306,28 @@ $(function () {
     });
   };
 
-
+  // =============================================
+  // 팝업: 상품별 팝업 열기/닫기
+  // =============================================
   const initProductPopup = () => {
+    // 팝업 열기: data-product 값으로 해당 팝업 ID 찾기
     $(document).on("click", ".open-popup", function (e) {
       e.preventDefault();
       const productId = $(this).data("product");
       const $popup = $("#popup-" + productId);
       if ($popup.length) {
         $popup.css("display", "flex");
-        $("body").addClass("mob-lock");
+        $("body").addClass("mob-lock"); // 배경 스크롤 방지
       }
     });
 
-
+    // 팝업 닫기: 닫기 버튼
     $(document).on("click", ".close-btn", function () {
       $(this).closest(".popup").hide();
       $("body").removeClass("mob-lock");
     });
 
+    // 팝업 닫기: 팝업 배경(오버레이) 클릭
     $(document).on("click", ".popup", function (e) {
       if ($(e.target).hasClass("popup")) {
         $(this).hide();
@@ -331,6 +335,7 @@ $(function () {
       }
     });
 
+    // 팝업 닫기: ESC 키
     $(document).on("keydown", function (e) {
       if (e.key === "Escape") {
         $(".popup:visible").hide();
@@ -338,12 +343,15 @@ $(function () {
       }
     });
 
+    // 스펙 옵션 아코디언
     $(document).on("click", ".spec-title", function () {
       const $item = $(this).closest(".spec-item");
       const $option = $(this).next(".spec-option");
       const isOpen = $item.hasClass("open");
+      // 같은 팝업 내 다른 항목 닫기
       $item.closest(".spec-list").find(".spec-item.open").not($item)
         .removeClass("open").find(".spec-option").slideUp(180);
+      // 현재 항목 토글
       if (isOpen) {
         $item.removeClass("open");
         $option.slideUp(180);
@@ -362,7 +370,24 @@ $(function () {
   initReviewSlider();
   initProductPopup();
 
-  // 이벤트 Swiper
+  // 리뷰 팝업
+  $(document).on("click", ".open-review", function (e) {
+    e.preventDefault();
+    const reviewId = $(this).data("review");
+    $("#review-popup-" + reviewId).css("display", "flex");
+    $("body").addClass("mob-lock");
+  });
+  $(document).on("click", ".review-popup-close", function () {
+    $(this).closest(".review-popup").hide();
+    $("body").removeClass("mob-lock");
+  });
+  $(document).on("click", ".review-popup", function (e) {
+    if ($(e.target).hasClass("review-popup")) {
+      $(this).hide();
+      $("body").removeClass("mob-lock");
+    }
+  });
+
   var swiper = new Swiper(".eventSwiper", {
     slidesPerView: 4,
     spaceBetween: 20,

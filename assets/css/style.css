@@ -1131,7 +1131,98 @@ font-weight:700;
   font-size:18px;
 }
 
-/* ===== 팝업 오버레이 ===== */
+.review-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.review-popup-box {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 8px 40px rgba(0,0,0,.22);
+}
+.review-popup-img {
+  flex: 0 0 260px;
+  overflow: hidden;
+  background: #111;
+}
+.review-popup-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.review-popup-content {
+  flex: 1;
+  padding: 32px 28px 24px;
+  display: flex;
+  flex-direction: column;
+}
+.review-popup-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 6px;
+}
+.review-popup-product {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 16px;
+}
+.review-popup-text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.8;
+  flex: 1;
+}
+.review-popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+}
+.review-popup-actions button {
+  padding: 7px 18px;
+  font-size: 13px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  color: #555;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.review-popup-actions button:hover {
+  background: #e0e0e0;
+  color: #111;
+}
+.review-popup-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #aaa;
+  cursor: pointer;
+  padding: 2px 6px;
+  z-index: 10;
+}
+.review-popup-close:hover { color: #111; }
+@media (max-width: 540px) {
+  .review-popup-box { flex-direction: column; }
+  .review-popup-img { flex: 0 0 200px; }
+}
 .popup {
   display: none;
   position: fixed;
@@ -1279,7 +1370,12 @@ font-weight:700;
 }
 .buy-btn:hover { background: #2E54B5; }
 
-
+@media (max-width: 640px) {
+  .popup-box { flex-direction: column; max-height: 95vh; }
+  .popup-left { flex: 0 0 180px; }
+  .popup-right { padding: 18px 16px 14px; }
+  .popup-bottom { flex-direction: column; align-items: stretch; text-align: center; }
+}
 
 @media (max-width: 1280px) {
   .menu { gap: 28px; }
