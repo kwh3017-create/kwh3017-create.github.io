@@ -401,4 +401,8 @@ $(function () {
     }
   });
 
+  $('.btn-report, .btn-block').on('click', function(){
+    alert("회원전용입니다. 로그인해주세요.");
+  });
+
 });

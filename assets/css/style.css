@@ -1149,7 +1149,7 @@ font-weight:700;
   border-radius: 6px;
   overflow: hidden;
   width: 100%;
-  max-width: 700px;
+  max-width: 900px;
   box-shadow: 0 8px 40px rgba(0,0,0,.22);
 }
 .review-popup-img {
@@ -1170,20 +1170,21 @@ font-weight:700;
   flex-direction: column;
 }
 .review-popup-name {
-  font-size: 22px;
+  font-size: 50px;
   font-weight: 700;
-  color: #111;
+  color: var(--fontmain);
   margin-bottom: 6px;
 }
 .review-popup-product {
-  font-size: 13px;
-  color: #888;
+  font-size: 20px;
+  color: var(--fontmain);
   margin-bottom: 16px;
+  font-weight: 600;
 }
 .review-popup-text {
-  font-size: 14px;
-  color: #333;
-  line-height: 1.8;
+  font-size: 18px;
+  color: var(--fontmain);
+  line-height: 1.3;
   flex: 1;
 }
 .review-popup-actions {
@@ -1203,8 +1204,8 @@ font-weight:700;
   transition: background .15s, color .15s;
 }
 .review-popup-actions button:hover {
-  background: #e0e0e0;
-  color: #111;
+  background:#000;
+  color: #fff;
 }
 .review-popup-close {
   position: absolute;
@@ -1218,7 +1219,7 @@ font-weight:700;
   padding: 2px 6px;
   z-index: 10;
 }
-.review-popup-close:hover { color: #111; }
+.review-popup-close:hover { color: #000; }
 @media (max-width: 540px) {
   .review-popup-box { flex-direction: column; }
   .review-popup-img { flex: 0 0 200px; }
