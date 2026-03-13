@@ -1,14 +1,42 @@
 $(function () {
   const initGnbHover = () => {
+    $(".has-sub > a").attr({
+      "aria-haspopup": "true",
+      "aria-expanded": "false",
+    });
+
+    $(".locale-btn").attr({
+      "aria-haspopup": "true",
+      "aria-expanded": "false",
+    });
+
+    const setSubMenu = ($item, open) => {
+      $item.children("a").attr("aria-expanded", String(open));
+      $item.children(".sub-menu").stop(true, true)[open ? "slideDown" : "slideUp"](200);
+    };
+
+    const setLocaleMenu = ($item, open) => {
+      $item.find(".locale-btn").attr("aria-expanded", String(open));
+      $item.find(".locale-list").stop(true, true)[open ? "slideDown" : "slideUp"](150);
+    };
+
     $(".has-sub").hover(
-      function () { $(this).children(".sub-menu").stop(true, true).slideDown(200); },
-      function () { $(this).children(".sub-menu").stop(true, true).slideUp(200); }
-    );
+      function () { setSubMenu($(this), true); },
+      function () { setSubMenu($(this), false); }
+    ).on("focusin", function () {
+      setSubMenu($(this), true);
+    }).on("focusout", function (e) {
+      if (!this.contains(e.relatedTarget)) setSubMenu($(this), false);
+    });
 
     $(".locale").hover(
-      function () { $(this).find(".locale-list").stop(true, true).slideDown(150); },
-      function () { $(this).find(".locale-list").stop(true, true).slideUp(150); }
-    );
+      function () { setLocaleMenu($(this), true); },
+      function () { setLocaleMenu($(this), false); }
+    ).on("focusin", function () {
+      setLocaleMenu($(this), true);
+    }).on("focusout", function (e) {
+      if (!this.contains(e.relatedTarget)) setLocaleMenu($(this), false);
+    });
   };
 
   const initMainSlide = () => {
@@ -55,11 +83,13 @@ $(function () {
       $drawer.toggleClass("is-open", open);
       $overlay.toggle(open);
       $("body").toggleClass("mob-lock", open);
+      $hamburger.attr("aria-expanded", String(open));
       $hamburgerIcon.toggleClass("fa-bars", !open).toggleClass("fa-xmark", open);
       if (!open) closeSubs();
     };
 
-    $hamburger.on("click", () => setDrawer(true));
+    $hamburger.attr("aria-expanded", "false");
+    $hamburger.on("click", () => setDrawer(!$drawer.hasClass("is-open")));
     $overlay.add(".mob-close").on("click", () => setDrawer(false));
     $(document).on("keydown", (e) => e.key === "Escape" && setDrawer(false));
     $(window).on("resize", () => $(window).width() > 540 && setDrawer(false));
@@ -310,15 +340,86 @@ $(function () {
   // 팝업: 상품별 팝업 열기/닫기
   // =============================================
   const initProductPopup = () => {
-    // 팝업 열기: data-product 값으로 해당 팝업 ID 찾기
+
+    // "(+300,000)" 또는 "(300,000)" 에서 숫자만 추출
+    const parseOptionPrice = (text) => {
+      const match = String(text).match(/\(\+?([\d,]+)\)/);
+      return match ? parseInt(match[1].replace(/,/g, ""), 10) : 0;
+    };
+
+    // "최적가 : 519,000원" 같은 텍스트에서 숫자 추출
+    const parseLabelPrice = (text) => {
+      const match = String(text).match(/([\d,]+)원/);
+      return match ? parseInt(match[1].replace(/,/g, ""), 10) : 0;
+    };
+
+    const formatPrice = (value) => `${Number(value).toLocaleString("ko-KR")}원`;
+
+    // 옵션 텍스트에서 "(+숫자)" 부분 제거해 라벨용 텍스트 반환
+    const parseOptionLabel = (text) =>
+      String(text).replace(/\s*\(\+?[\d,]+\)\s*$/, "").trim();
+
+    // 팝업의 기본 가격(HTML 원본 기준)을 읽어 data에 저장
+    const storeBasePrices = ($popup) => {
+      const $price = $popup.find(".popup-price").first();
+      const fullText = $price.text();
+      // "최적가 : 519,000원" 과 "판매가(카드) : 579,000원" 두 숫자를 순서대로 추출
+      const nums = [...fullText.matchAll(/([\d,]+)원/g)].map(m => parseInt(m[1].replace(/,/g, ""), 10));
+      $popup.data("baseCash", nums[0] || 0);
+      $popup.data("baseCard", nums[1] || 0);
+    };
+
+    const updatePopupPrice = ($popup) => {
+      let optionTotal = 0;
+      $popup.find(".spec-item").each(function () {
+        optionTotal += Number($(this).data("selectedPrice") || 0);
+      });
+
+      const cash = Number($popup.data("baseCash") || 0) + optionTotal;
+      const card = Number($popup.data("baseCard") || 0) + optionTotal;
+
+      $popup.find(".popup-price").first().html(
+        `최적가 : ${formatPrice(cash)}&nbsp;&nbsp;<strong>판매가(카드) : ${formatPrice(card)}</strong>`
+      );
+    };
+
+    const updateSpecLabel = ($item, optionText) => {
+      const $label = $item.find(".spec-label").first();
+      const baseLabel = $item.data("baseLabel") || $label.text();
+      const prefix = baseLabel.includes(":") ? `${baseLabel.split(":")[0]} :` : baseLabel;
+      const cleanOption = parseOptionLabel(optionText);
+      $label.text(cleanOption ? `${prefix} ${cleanOption}` : prefix);
+    };
+
+    // 팝업 열기 — 열 때마다 기본가격·선택상태 초기화
     $(document).on("click", ".open-popup", function (e) {
       e.preventDefault();
       const productId = $(this).data("product");
       const $popup = $("#popup-" + productId);
-      if ($popup.length) {
-        $popup.css("display", "flex");
-        $("body").addClass("mob-lock"); // 배경 스크롤 방지
-      }
+      if (!$popup.length) return;
+
+      // 기본 가격 저장 (매번 HTML 원본에서 다시 읽기 위해 data 초기화)
+      $popup.removeData("baseCash baseCard");
+      storeBasePrices($popup);
+
+      // 스펙 항목 초기화
+      $popup.find(".spec-item").each(function () {
+        const $item = $(this);
+        // baseLabel이 없으면 현재 텍스트를 저장
+        if (!$item.data("baseLabel")) {
+          $item.data("baseLabel", $item.find(".spec-label").first().text());
+        } else {
+          // 라벨을 원래대로 복원
+          $item.find(".spec-label").first().text($item.data("baseLabel"));
+        }
+        $item.data("selectedPrice", 0);
+        $item.find(".spec-option button").removeClass("is-selected");
+        $item.removeClass("open");
+        $item.find(".spec-option").hide();
+      });
+
+      $popup.css("display", "flex");
+      $("body").addClass("mob-lock");
     });
 
     // 팝업 닫기: 닫기 버튼
@@ -327,7 +428,7 @@ $(function () {
       $("body").removeClass("mob-lock");
     });
 
-    // 팝업 닫기: 팝업 배경(오버레이) 클릭
+    // 팝업 닫기: 배경 클릭
     $(document).on("click", ".popup", function (e) {
       if ($(e.target).hasClass("popup")) {
         $(this).hide();
@@ -341,6 +442,29 @@ $(function () {
         $(".popup:visible").hide();
         $("body").removeClass("mob-lock");
       }
+    });
+
+    // 스펙 옵션 버튼 클릭 → 가격 업데이트
+    $(document).on("click", ".spec-option button", function () {
+      const $btn   = $(this);
+      const $item  = $btn.closest(".spec-item");
+      const $popup = $btn.closest(".popup");
+
+      // 같은 항목 내 다른 버튼 선택 해제 후 현재 버튼 선택
+      $item.find(".spec-option button").removeClass("is-selected");
+      $btn.addClass("is-selected");
+
+      // 버튼 텍스트에서 추가 금액 파싱
+      const price = parseOptionPrice($btn.text());
+      $item.data("selectedPrice", price);
+
+      // 라벨 업데이트 + 전체 가격 합산
+      updateSpecLabel($item, $btn.text());
+      updatePopupPrice($popup);
+
+      // 아코디언 닫기
+      $item.removeClass("open");
+      $item.find(".spec-option").slideUp(180);
     });
 
     // 스펙 옵션 아코디언
@@ -404,6 +528,11 @@ $(function () {
 
   $('.btn-report, .btn-block').on('click', function(){
     alert("회원전용입니다. 로그인해주세요.");
+  });
+
+  $(".contact-form").on("submit", function (e) {
+    e.preventDefault();
+    alert("문의 기능은 현재 준비 중입니다.");
   });
 
 });

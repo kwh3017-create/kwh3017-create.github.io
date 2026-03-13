@@ -1,0 +1,4 @@
+/* Local fallback stack for Pretendard-style UI */
+:root {
+  --font-stack: "Pretendard", "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+}
