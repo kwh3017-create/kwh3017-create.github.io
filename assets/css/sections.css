@@ -819,6 +819,8 @@
 }
 
 #map {
+  width: 100%;
+  height: 452px;
   margin-top: 50px;
   border-radius: 18px;
   overflow: hidden;

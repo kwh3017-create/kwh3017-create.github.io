@@ -266,6 +266,10 @@
   gap: 56px;
   align-items: start;
 }
+
+  #map{
+    height: 300px;
+  }
 }
 
 
@@ -422,8 +426,9 @@
 }
 
 #map{
-  margin-top:40px;
-  height:220px;
+  margin-top:30px;
+  height:200px;
+  border-radius:12px;
 }
 
 
@@ -630,7 +635,8 @@
 }
 
 #map{
-  height:150px;
+  height:160px;
+  border-radius:10px;
 }
 
 .footer-left img{
