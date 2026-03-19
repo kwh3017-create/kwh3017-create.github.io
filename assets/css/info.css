@@ -5,10 +5,6 @@
 /* =============================================
    Header Overlay
    ============================================= */
-.main-page {
-  position: relative;
-}
-
 .info-header {
   position: absolute;
   top: 0;
@@ -29,14 +25,17 @@
   color: #fff;
 }
 
+.info-header .hamburger {
+  color: #fff;
+}
+
 /* =============================================
    Hero Banner
    ============================================= */
 .info-hero {
   position: relative;
   width: 100%;
-  height: calc(100vh - 56px);
-  min-height: 400px;
+  height: 400px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -603,7 +602,7 @@
 
 /* ── 1280px ── */
 @media (max-width: 1280px) {
-  .info-hero { height: calc(100vh - 56px); }
+  .info-hero { height: 360px; }
   .info-hero-title { font-size: 40px; }
 
   .info-section { padding: 72px 0; }
@@ -617,7 +616,7 @@
 
 /* ── 1024px ── */
 @media (max-width: 1024px) {
-  .info-hero { height: calc(100vh - 56px); }
+  .info-hero { height: 320px; }
   .info-hero-title { font-size: 36px; }
 
   .info-section { padding: 60px 0; }
@@ -635,7 +634,7 @@
 
 /* ── 768px ── */
 @media (max-width: 768px) {
-  .info-hero { height: calc(100vh - 52px); }
+  .info-hero { height: 280px; }
   .info-hero-sub { font-size: 13px; }
   .info-hero-title { font-size: 30px; }
 
@@ -664,7 +663,7 @@
 
 /* ── 540px ── */
 @media (max-width: 540px) {
-  .info-hero { height: calc(100vh - 48px); }
+  .info-hero { height: 240px; }
   .info-hero-title { font-size: 26px; }
 
   .info-section { padding: 36px 0; }
@@ -687,7 +686,7 @@
 
 /* ── 414px ── */
 @media (max-width: 414px) {
-  .info-hero { height: calc(100vh - 44px); }
+  .info-hero { height: 210px; }
   .info-hero-title { font-size: 22px; }
   .info-hero-inner { padding-top: 60px; }
 

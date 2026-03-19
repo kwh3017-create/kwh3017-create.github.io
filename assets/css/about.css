@@ -20,7 +20,8 @@
 }
 
 .header .menu-item > a,
-.header .locale-btn {
+.header .locale-btn,
+.header .hamburger {
   color: #fff;
 }
 
@@ -34,8 +35,7 @@
 .sub-banner {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 400px;
+  height: 380px;
   overflow: hidden;
 }
 
@@ -205,8 +205,9 @@
 }
 
 .about-text img {
-  width: 300px;
-  height: 100px;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
 }
 
 .about-tag img {
@@ -541,7 +542,7 @@
 
 /* ── 1280px ── */
 @media (max-width: 1280px) {
-  .sub-banner { height: 100vh; }
+  .sub-banner { height: 340px; }
 
   .about-intro { padding: 80px 0; }
   .about-intro-inner { gap: 60px; }
@@ -562,7 +563,7 @@
 
 /* ── 1024px ── */
 @media (max-width: 1024px) {
-  .sub-banner { height: 100vh; }
+  .sub-banner { height: 300px; }
 
   .about-intro { padding: 64px 0; }
   .about-intro-inner { gap: 40px; }
@@ -585,7 +586,7 @@
 
 /* ── 768px (모바일 레이아웃 전환) ── */
 @media (max-width: 768px) {
-  .sub-banner { height: 100vh; }
+  .sub-banner { height: 260px; }
   .sub-banner-inner { padding-top: 70px; }
   .sub-title { font-size: 26px; }
 
@@ -611,6 +612,7 @@
     box-shadow: none;
   }
   .about-text { flex: none; width: 100%; }
+  .about-text img { max-width: 200px; }
   .about-title { font-size: 24px; }
   .about-desc { font-size: 15px; }
 
@@ -636,13 +638,14 @@
 
 /* ── 540px (크기 조정) ── */
 @media (max-width: 540px) {
-  .sub-banner { height: 100vh; }
+  .sub-banner { height: 220px; }
   .sub-banner-inner { padding-top: 60px; }
   .sub-title { font-size: 22px; }
 
   /* intro: 레이아웃은 768px에서 상속, 크기만 조정 */
   .about-intro { padding: 36px 0; }
   .about-imgs { height: 180px; gap: 10px; }
+  .about-text img { max-width: 160px; }
   .about-title { font-size: 22px; }
   .about-desc { font-size: 15px; }
 
@@ -709,7 +712,7 @@
 
 /* ── 414px (최소 모바일) ── */
 @media (max-width: 414px) {
-  .sub-banner { height: 100vh; }
+  .sub-banner { height: 190px; }
   .sub-banner-inner { padding-top: 54px; }
   .sub-title { font-size: 20px; }
 

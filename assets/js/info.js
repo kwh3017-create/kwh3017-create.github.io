@@ -9,12 +9,10 @@ $(function () {
   });
 
   /* ── 언어 드롭다운 ── */
-  $('.locale-btn').on('click', function (e) {
-    e.stopPropagation();
-    $('.locale-list').toggle();
-  });
-  $(document).on('click', function () {
-    $('.locale-list').hide();
+  $('.locale').on('mouseenter', function () {
+    $(this).find('.locale-list').stop(true, true).slideDown(150);
+  }).on('mouseleave', function () {
+    $(this).find('.locale-list').stop(true, true).slideUp(150);
   });
 
   /* ── 모바일 드로어 ── */
