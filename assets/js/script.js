@@ -270,14 +270,16 @@ $(function () {
       goTo(currentIdx, true);
       moveIndicator();
 
-      setTimeout(() => {
-        // 뒤쪽 복제 구간에 진입했으면 원본 구간으로 순간이동
+      const finish = () => {
+        $track.off("transitionend webkitTransitionEnd", finish);
         if (currentIdx >= N * 2) {
           currentIdx = N;
           goTo(currentIdx, false);
         }
         moving = false;
-      }, duration + 30);
+      };
+
+      $track.one("transitionend webkitTransitionEnd", finish);
     };
 
     const prev = () => {
@@ -287,19 +289,21 @@ $(function () {
       goTo(currentIdx, true);
       moveIndicator();
 
-      setTimeout(() => {
-        // 앞쪽 복제 구간에 진입했으면 원본 구간으로 순간이동
+      const finish = () => {
+        $track.off("transitionend webkitTransitionEnd", finish);
         if (currentIdx < N) {
           currentIdx = N * 2 - 1;
           goTo(currentIdx, false);
         }
         moving = false;
-      }, duration + 30);
+      };
+
+      $track.one("transitionend webkitTransitionEnd", finish);
     };
 
     const setAuto = (on) => {
       clearInterval(timer);
-      if (on) timer = setInterval(next, 3000);
+      if (on) timer = setInterval(next, 2800);
     };
 
     $next.off("click").on("click", () => { setAuto(false); next(); setAuto(true); });
