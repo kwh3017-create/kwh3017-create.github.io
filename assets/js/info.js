@@ -101,6 +101,8 @@ $(function () {
       tabAnimating = false;
       // 열려있던 FAQ 닫기
       $('.faq-q[aria-expanded="true"]').attr('aria-expanded', 'false').siblings('.faq-a').slideUp(200);
+      // 탭 전환 후 AOS 위치 재계산
+      AOS.refresh();
     }, 250);
   }
 

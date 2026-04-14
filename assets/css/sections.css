@@ -1,26 +1,43 @@
 ﻿@import url('common.css');
 
 
+.fp-section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .slide {
   position: relative;
   width: 100%;
-  height: 540px;
+  min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
+  display: flex;
+  align-items: stretch;
 }
 
 .slide-track {
   display: flex;
+  width: 100%;
+  min-height: 100vh;
   height: 100%;
   transition: transform .5s ease;
 }
 
 .slide-container {
   flex: 0 0 100%;
+  min-height: 100vh;
   height: 100%;
   position: relative;
 }
 
 .slide-container img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -476,11 +493,11 @@
 }
 
 .pc-order-nav.prev {
-  left: -18px;
+  left: 8px;
 }
 
 .pc-order-nav.next {
-  right: -18px;
+  right: 8px;
 }
 
 .pc-order-nav:hover {

@@ -5,17 +5,14 @@
   .menu { gap: 28px; }
   .menu-item > a { font-size: 17px; }
 
-  .slide { height: 480px; }
   .slide-main { font-size: 48px; }
   .slide-sub { font-size: 17px; }
 
-  .page-main-h2 { font-size: 28px; }
-
   .service-container { grid-template-columns: 300px 1fr; gap: 36px; }
-  .service-left{ height: 500px; }
+  .service-left{ height: calc(100vh - 240px); max-height: 480px; }
   .service-main { font-size: 40px; }
   .service-desc { font-size: 20px; }
-  .service-card { flex: 0 0 360px; height: 480px; }
+  .service-card { flex: 0 0 360px; height: calc(100vh - 240px); max-height: 480px; }
 
   .pc-order-track{ --cols: 4; }
 
@@ -39,7 +36,6 @@
   .menu { gap: 18px; }
   .menu-item > a { font-size: 16px; }
 
-  .slide { height: 420px; }
   .slide-main { font-size: 40px; }
   .slide-sub { font-size: 16px; }
 
@@ -47,18 +43,16 @@
   .slide-cont2,
   .slide-cont3 { gap: 16px; max-width: 420px; }
 
+  .service { padding: 60px 0 40px; }
+  .contact { padding: 80px 0 40px; }
   .page-btn { padding: 60px 0; }
-  .page-main-h2 { font-size: 26px; }
-  .page-sub-p { font-size: 15px; }
-
-  .service { padding: 70px 0; }
   .service-container { grid-template-columns: 260px 1fr; gap: 28px; }
-  .service-left{ height: 450px; }
+  .service-left{ height: calc(100vh - 200px); max-height: 420px; }
   .service-main { font-size: 34px; }
   .service-desc { font-size: 18px; }
   .service-copy { font-size: 22px; }
   .service-no { font-size: 40px; }
-  .service-card { flex: 0 0 300px; height: 420px; }
+  .service-card { flex: 0 0 300px; height: calc(100vh - 200px); max-height: 420px; }
 
   .pc-order-track{ --cols: 3; }
   .pc-order-main{ font-size: 36px; }
@@ -116,6 +110,14 @@
  
 
 @media (max-width: 768px) {
+  /* ── 풀페이지 비활성화 ── */
+  html, body { overflow-x: hidden; overflow-y: auto; height: auto; }
+  .fp-wrap { transform: none !important; transition: none; overflow-x: hidden; }
+  .fp-section { height: auto; min-height: 100svh; overflow: visible; }
+  .fp-section.slide { height: 100svh; }
+  .fp-section.contact { overflow: visible; }
+  .fp-nav { display: none; }
+
   :root { --gutter: 16px; }
 
   .header-inner { height: 64px; }
@@ -126,7 +128,6 @@
   .sub-menu a { font-size: 14px; }
   .locale-btn { font-size: 14px; }
 
-  .slide { height: 340px; }
   .slide-cont1,
   .slide-cont2,
   .slide-cont3 { left: 6%; gap: 12px; max-width: 320px; }
@@ -137,20 +138,9 @@
   .slide-nav.prev { left: 12px; }
   .slide-nav.next { right: 12px; }
 
-  .page-btn { padding: 48px 0; }
-  .page-btn .container{
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 16px;
-  }
-  .page-card.page-btn-comp { grid-column: 1 / -1; height: 200px; }
-  .page-card.page-btn-service,
-  .page-card.page-btn-newbie { height: 180px; }
-  .page-main-h2 { font-size: 22px; }
-  .page-sub-p { font-size: 14px; top: auto; bottom: 72px; transform: none; }
-  .page-main-h2 { bottom: 16px; }
-
-  .service { padding: 56px 0; }
+  .service { padding: 60px 0 40px; }
+  .contact { padding: 70px 0 40px; }
+  .page-btn { padding: 50px 0; }
   .service-container{
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -282,7 +272,6 @@
   .hamburger { display: flex; }
   .locale { display: none; }
 
-  .slide { height: 260px; }
   .slide-cont1,
   .slide-cont2,
   .slide-cont3 { left: 5%; gap: 10px; max-width: 260px; }
@@ -294,32 +283,9 @@
   .slide-nav.prev { left: 8px; }
   .slide-nav.next { right: 8px; }
 
-  .page-btn { padding: 32px 0; }
-  .page-btn .container{
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 12px;
-  }
-  .page-card.page-btn-comp{
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-    height: 100%;
-    min-height: 280px;
-  }
-  .page-card.page-btn-service{
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    height: 134px;
-  }
-  .page-card.page-btn-newbie{
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    height: 134px;
-  }
-  .page-main-h2 { font-size: 18px; }
-  .page-sub-p { font-size: 14px; }
-
-  .service { padding: 40px 0; }
+  .service { padding: 60px 0 36px; }
+  .contact { padding: 60px 0 40px; }
+  .page-btn { padding: 40px 0; }
   .service-main { font-size: 28px; }
   .service-desc { font-size: 14px; }
   .service-card { flex: 0 0 100%; height: 320px; }
@@ -372,7 +338,7 @@
   .review-desc{ font-size: 14px; }
 
   .contact{
-  padding:50px 0;
+  padding: 80px 0 50px;
 }
 
 .contact-top{
@@ -517,21 +483,17 @@
 
 @media (max-width: 414px) {
 
-  :root { 
-  --gutter: 12px; 
+  :root {
+  --gutter: 12px;
 }
 
   .header-inner{
-    height: 56px; 
+    height: 56px;
   }
 
-  .logo{ 
+  .logo{
     font-size: 16px;
    }
-
-  .slide {
-     height: 230px;
-     }
 
   .slide-cont1,.slide-cont2,.slide-cont3 {
      left: 5%; gap: 8px; max-width: 220px;
@@ -545,51 +507,8 @@
      font-size: 14px;
     }
 
-  .page-btn {
-     padding: 24px 0; 
-    }
-
-  .page-btn .container{
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 10px;
-  }
-
-  .page-card.page-btn-comp{
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-    height: 100%;
-    min-height: 240px;
-  }
-
-  .page-card.page-btn-service{
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    height: 115px;
-  }
-
-  .page-card.page-btn-newbie{
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    height: 115px;
-  }
-
-  .page-main-h2 {
-     font-size: 16px; 
-    }
-
-  .page-sub-p { 
-    font-size: 14px;
-   }
-
-  .page-card::before{
-    font-size: 16px;
-    right: 16px;
-    bottom: 16px;
-  }
-
-  .service { 
-    padding: 32px 0; 
+  .service {
+    padding: 64px 0 32px;
   }
 
   .service-main{

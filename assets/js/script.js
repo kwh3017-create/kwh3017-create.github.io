@@ -488,6 +488,72 @@ $(function () {
     });
   };
 
+  const initSectionSnap = () => {
+    if (!window.gsap || !window.ScrollToPlugin) return;
+    gsap.registerPlugin(ScrollToPlugin);
+
+    const sections = gsap.utils.toArray(".fp-section");
+    if (!sections.length) return;
+
+    let isAnimating = false;
+    let currentIndex = sections.findIndex((section) => section.offsetTop >= window.pageYOffset - 1);
+    if (currentIndex < 0) currentIndex = 0;
+
+    const scrollToSection = (index) => {
+      index = Math.max(0, Math.min(sections.length - 1, index));
+      if (isAnimating || index === currentIndex) return;
+      isAnimating = true;
+      currentIndex = index;
+      gsap.to(window, {
+        duration: 0.9,
+        scrollTo: { y: sections[index], autoKill: false },
+        ease: "power2.out",
+        onComplete: () => { isAnimating = false; }
+      });
+    };
+
+    const onWheel = (e) => {
+      if (isAnimating) {
+        e.preventDefault();
+        return;
+      }
+      const delta = e.deltaY;
+      if (Math.abs(delta) < 10) return;
+
+      const currentSection = sections[currentIndex];
+      const rect = currentSection.getBoundingClientRect();
+      const atTop = rect.top >= -1;
+      const atBottom = rect.bottom <= window.innerHeight + 1;
+
+      if (delta > 0) {
+        if (!atBottom || currentIndex >= sections.length - 1) return;
+        e.preventDefault();
+        scrollToSection(currentIndex + 1);
+      } else {
+        if (!atTop || currentIndex <= 0) return;
+        e.preventDefault();
+        scrollToSection(currentIndex - 1);
+      }
+    };
+
+    window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("resize", () => {
+      sections.forEach((section, i) => {
+        if (section.offsetTop <= window.pageYOffset + 1) currentIndex = i;
+      });
+      ScrollTrigger.refresh();
+    });
+    window.addEventListener("scroll", () => {
+      if (isAnimating) return;
+      sections.forEach((section, i) => {
+        const top = section.getBoundingClientRect().top;
+        if (top >= -window.innerHeight / 2 && top <= window.innerHeight / 2) {
+          currentIndex = i;
+        }
+      });
+    });
+  };
+
   initGnbHover();
   initMainSlide();
   initMobileDrawer();
@@ -495,6 +561,7 @@ $(function () {
   initPcOrderSlider();
   initReviewSlider();
   initProductPopup();
+  initSectionSnap();
 
   // 리뷰 팝업
   $(document).on("click", ".open-review", function (e) {

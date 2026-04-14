@@ -86,7 +86,8 @@ href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
     </header>
 
     <main>
-        <div class="slide">
+      <div class="fp-wrap" id="fp-wrap">
+        <div class="fp-section slide" id="home">
             <div class="slide-track">
                 <div class="slide-container">
                     <img src="assets/img/slide1.png" alt="슬라이드 1번이미지">
@@ -115,27 +116,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
             <button type="button" class="slide-nav next" aria-label="다음"><i class="fa-solid fa-angle-right"></i></button>
         </div>
 
-        <section class="page-btn">
-            <div class="container">
-                <a href="about.html" class="page-card page-btn-comp">
-                    <img src="assets/img/page1.png" alt="회사소개">
-                    <p class="page-sub-p">회사소개</p>
-                    <h2 class="page-main-h2">G.T.I system을<br>소개합니다.</h2>
-                </a>
-                <a href="#service" class="page-card page-btn-service">
-                    <img src="assets/img/page2.png" alt="서비스 소개">
-                    <p class="page-sub-p">서비스 소개</p>
-                    <h2 class="page-main-h2">PC구매시<br>무슨 혜택이 있나요?</h2>
-                </a>
-                <a href="info.html" class="page-card page-btn-newbie">
-                    <img src="assets/img/page3.png" alt="컴퓨터 튜토리얼">
-                    <p class="page-sub-p">컴퓨터 튜토리얼</p>
-                    <h2 class="page-main-h2">컴퓨터에<br>잘 모르겠어요.</h2>
-                </a>
-            </div>
-        </section>
-
-        <section class="service" id="service">
+        <section class="fp-section service" id="service">
             <div class="service-container">
 
                 <div class="service-left">
@@ -182,7 +163,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
             </div>
         </section>
 
-        <section class="pc-order">
+        <section class="fp-section pc-order">
           <div class="container">
             <div class="pc-order-head">
               <h2 class="pc-order-main">PC구매</h2>
@@ -321,7 +302,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
           </div>
         </section>
 
-        <section class="review-sec">
+        <section class="fp-section review-sec">
           <div class="container review-wrap">
 
             <div class="review-left">
@@ -426,7 +407,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
           </div>
         </section>
 
-<section class="event-sec">
+<section class="fp-section event-sec">
   <div class="container">
 
     <div class="event-text">
@@ -495,7 +476,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
   </div>
 </section>
 
-        <section class="contact" id="contact">
+        <section class="fp-section contact" id="contact">
       <div class="container contact-wrap">
 
         <div class="contact-top">
@@ -1298,6 +1279,9 @@ href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
     </button>
 
     <script src="assets/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="assets/js/script.js"></script>
 
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2215461503aeb8c86b4e7ca39417f494"></script>
