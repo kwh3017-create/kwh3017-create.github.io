@@ -31,7 +31,7 @@ html, body {
 
 .logo{
   font-size: 24px;
-  font-weight: 800;
+  font-weight: 700; /* body-24, bold */
 }
 
 .logo-point{
@@ -59,6 +59,7 @@ html, body {
   padding: 10px 6px;
   color: var(--fontmain);
   font-size: 18px;
+  font-weight: 500; /* body-18, medium */
 }
 
 .menu-item.has-sub::after{
@@ -87,6 +88,7 @@ html, body {
   display: block;
   padding: 10px 0;
   font-size: 16px;
+  font-weight: 400; /* body-16, regular */
   color: var(--fontmain);
   text-align: center;
 }
@@ -310,6 +312,7 @@ body.mob-lock{
 
 .company-info{
   font-size:14px;
+  font-weight: 400; /* body-14, regular */
   line-height:1.6;
   color:#ccc;
 }

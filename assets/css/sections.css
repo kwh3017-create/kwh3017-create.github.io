@@ -61,7 +61,7 @@
 .slide-main {
   font-size: 56px;
   line-height: 1.2;
-  font-weight: 700;
+  font-weight: 700; /* Title-56 */
 }
 
 .slide-sub {
@@ -240,13 +240,14 @@
 
 .service-main{
   font-size: 48px;
-  font-weight: 800;
+  font-weight: 700; /* body-48, bold */
   letter-spacing: -0.02em;
   color: var(--fontmain);
 }
 
 .service-desc{
   font-size: 24px;
+  font-weight: 400; /* body-24, regular */
   line-height: 1.7;
   color: rgba(0,0,0,.62);
 }
@@ -350,6 +351,7 @@
   top: 18px;
   z-index: 2;
   font-size: 28px;
+  font-weight: 200; 
   line-height: 1.4;
 }
 
@@ -358,8 +360,8 @@
   left: 18px;
   bottom: 18px;
   z-index: 2;
-  font-weight: 800;
-  font-size: 50px;
+  font-weight: 700; /* body-48, bold */
+  font-size: 48px;
   letter-spacing: -0.02em;
 }
 
@@ -377,8 +379,8 @@
 }
 
 .pc-order-main {
-  font-size: 42px;
-  font-weight: 800;
+  font-size: 44px; /* body-44, bold */
+  font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--fontmain);
 }
@@ -386,6 +388,7 @@
 .pc-order-desc {
   margin-top: 10px;
   font-size: 16px;
+  font-weight: 400; /* body-16, regular */
   color: rgba(0,0,0,.60);
 }
 
@@ -451,20 +454,21 @@
 
 .pc-order-name {
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 700; /* body-18, bold */
   color: var(--fontmain);
 }
 
 .pc-spec-io {
   margin-top: 6px;
   font-size: 14px;
+  font-weight: 400; /* body-14, regular */
   color: rgba(0,0,0,.55);
 }
 
 .pc-price {
   margin-top: 10px;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 400; /* body-14, regular */
   color: var(--fontmain);
 }
 
@@ -529,7 +533,7 @@
 }
 
 .review-main {
-  font-size: 48px;
+  font-size: 48px; /* body-48, bold */
   letter-spacing: -0.02em;
   font-weight: 700;
   color: var(--fontmain);
@@ -537,6 +541,7 @@
 
 .review-view-all {
   font-size: 18px;
+  font-weight: 400; /* body-18, regular */
   color: var(--fontsub);
   width: fit-content;
 }
@@ -628,13 +633,14 @@
 
 .member-name {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 700; /* body-28, bold */
   color: var(--fontmain);
   margin-bottom: 10px;
 }
 
 .review-desc {
   font-size: 18px;
+  font-weight: 400; /* body-18, regular */
   color: rgba(0,0,0,.60);
 }
 
@@ -644,8 +650,8 @@
 }
 
 .event-main {
-  font-size: 42px;
-  font-weight: 800;
+  font-size: 44px; /* body-44, bold */
+  font-weight: 700;
   margin-bottom: 30px;
 }
 
@@ -729,7 +735,7 @@
 }
 
 .contact-title {
-  font-size: 44px;
+  font-size: 44px; /* body-44, bold */
   line-height: 1.1;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -739,6 +745,7 @@
 .contact-sub {
   margin-top: 20px;
   font-size: 20px;
+  font-weight: 700; /* body-20, bold */
   line-height: 1.7;
   color: var(--fontsub);
 }
@@ -754,6 +761,7 @@
   grid-template-columns: 72px 1fr;
   gap: 10px;
   font-size: 18px;
+  font-weight: 400; /* body-18, regular */
   line-height: 1.6;
   color: var(--fontsub);
 }

@@ -122,13 +122,14 @@
 
 .sub-title {
   font-size: 50px;
-  font-weight: 800;
+  font-weight: 700; /* Title-50, bold */
   color: #fff;
   line-height: 1.2;
 }
 
 .sub-desc {
   font-size: 18px;
+  font-weight: 400; /* body-18, regular */
   color: rgba(255,255,255,.80);
   line-height: 1.7;
 }
@@ -245,7 +246,7 @@
 
 .about-title {
   font-size: 48px;
-  font-weight: 800;
+  font-weight: 700; /* body-48, bold */
   line-height: 1.35;
   color: var(--fontmain);
   margin-bottom: 24px;
@@ -253,6 +254,7 @@
 
 .about-desc {
   font-size: 28px;
+  font-weight: 400; /* body-28, regular */
   color: var(--fontsub);
   line-height: 1.5;
   letter-spacing: -1px;
@@ -267,6 +269,7 @@
 
 .mission-eyebrow {
   font-size: 30px;
+  font-weight: 700; /* body-30, bold */
   color: var(--fontsub);
   margin-bottom: 10px;
   text-align: center;
@@ -274,7 +277,7 @@
 
 .mission-title {
   font-size: 48px;
-  font-weight: 800;
+  font-weight: 700; /* body-48, bold */
   color: var(--fontmain);
   text-align: center;
   margin-bottom: 60px;
@@ -320,13 +323,14 @@
 
 .mission-card h3 {
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 700; /* body-30, bold */
   color: var(--fontmain);
   text-align: center;
 }
 
 .mission-card p {
   font-size: 18px;
+  font-weight: 400; /* body-18, regular */
   color: var(--fontsub);
   line-height: 1.8;
   text-align: center;
@@ -348,8 +352,8 @@
 }
 
 .history-title {
-  font-size: 42px;
-  font-weight: 800;
+  font-size: 44px; /* body-44, bold */
+  font-weight: 700;
   line-height: 1.5;
   color: var(--fontmain);
 }
@@ -407,8 +411,8 @@
 }
 
 .history-year {
-  font-size: 42px;
-  font-weight: 800;
+  font-size: 44px; /* body-44, bold */
+  font-weight: 700;
   color: var(--fontmain);
   margin-bottom: 24px;
 }
@@ -421,6 +425,7 @@
 
 .history-list li {
   font-size: 18px;
+  font-weight: 400; /* body-18, regular */
   color: var(--fontsub);
   line-height: 1.7;
   padding-left: 14px;

@@ -103,8 +103,8 @@
 }
 
 .info-hero-title {
-  font-size: 46px;
-  font-weight: 800;
+  font-size: 44px; /* body-44, bold */
+  font-weight: 700;
   color: #fff;
   letter-spacing: -0.01em;
   line-height: 1.2;
@@ -133,7 +133,7 @@
   flex: 1;
   padding: 18px 0;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400; /* body-16, regular */
   color: #666;
   background: none;
   border: none;
@@ -231,15 +231,16 @@
 }
 
 .info-section-title {
-  font-size: 48px;
-  font-weight: 800;
+  font-size: 60px;
+  font-weight: 700; /* body-48, bold */
   color: var(--fontmain);
   margin-bottom: 24px;
   line-height: 1.3;
 }
 
 .info-section-desc {
-  font-size: 20px;
+  font-size: 22px;
+  font-weight: 400;
   color: var(--fontsub);
   line-height: 1.3;
 }
@@ -257,6 +258,7 @@
 
 .info-brand-summary p {
   font-size: 18px;
+  font-weight: 400; /* body-18, regular */
   color: var(--fontmain);
   line-height: 1.3;
 }
@@ -294,7 +296,7 @@
 .info-img-label {
   text-align: center;
   font-size: 28px;
-  font-weight: 900;
+  font-weight: 700; /* body-28, bold */
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.05em;
   line-height: 1.3;
@@ -491,8 +493,8 @@
 }
 
 .info-faq-title {
-  font-size: 34px;
-  font-weight: 800;
+  font-size: 30px; /* body-30, bold */
+  font-weight: 700;
   color: var(--fontmain);
   text-align: center;
   margin-bottom: 48px;
@@ -519,7 +521,7 @@
   gap: 16px;
   padding: 22px 0;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400; /* body-16, regular */
   color: var(--fontmain);
   background: none;
   border: none;
@@ -633,7 +635,7 @@
 
 .info-cta-title {
   font-size: 28px;
-  font-weight: 800;
+  font-weight: 700; /* body-28, bold */
   color: #fff;
   line-height: 1.5;
   margin-bottom: 28px;
