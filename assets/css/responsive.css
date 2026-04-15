@@ -5,18 +5,15 @@
   .menu { gap: 28px; }
   .menu-item > a { font-size: 17px; }
 
-  .slide-main { font-size: 48px; }
   .slide-sub { font-size: 17px; }
 
   .service-container { grid-template-columns: 300px 1fr; gap: 36px; }
   .service-left{ height: calc(100vh - 240px); max-height: 480px; }
-  .service-main { font-size: 40px; }
   .service-desc { font-size: 20px; }
   .service-card { flex: 0 0 360px; height: calc(100vh - 240px); max-height: 480px; }
 
   .pc-order-track{ --cols: 4; }
 
-  .review-main{ font-size: 38px; }
   .review-item{ min-width: 0; }
   .review-thumb img{
     height: 200px;
@@ -36,7 +33,6 @@
   .menu { gap: 18px; }
   .menu-item > a { font-size: 16px; }
 
-  .slide-main { font-size: 40px; }
   .slide-sub { font-size: 16px; }
 
   .slide-cont1,
@@ -48,14 +44,12 @@
   .page-btn { padding: 60px 0; }
   .service-container { grid-template-columns: 260px 1fr; gap: 28px; }
   .service-left{ height: calc(100vh - 200px); max-height: 420px; }
-  .service-main { font-size: 34px; }
   .service-desc { font-size: 18px; }
   .service-copy { font-size: 22px; }
   .service-no { font-size: 40px; }
   .service-card { flex: 0 0 300px; height: calc(100vh - 200px); max-height: 420px; }
 
   .pc-order-track{ --cols: 3; }
-  .pc-order-main{ font-size: 36px; }
 
   .pc-order-track{ --cols: 4; }
   .pc-order-nav.prev{ left: 8px; }
@@ -68,7 +62,6 @@
   .pc-order-nav.prev{ left: 8px; }
   .pc-order-nav.next{ right: 8px; }
 
-  .review-main{ font-size: 38px; }
   .review-item{ min-width: 0; }
   .review-thumb img{
     height: 200px;
@@ -131,7 +124,6 @@
   .slide-cont1,
   .slide-cont2,
   .slide-cont3 { left: 6%; gap: 12px; max-width: 320px; }
-  .slide-main { font-size: 30px; }
   .slide-sub { font-size: 14px; line-height: 1.5; }
   .slide-cta a { font-size: 14px; }
   .slide-nav { width: 36px; height: 36px; font-size: 20px; }
@@ -155,7 +147,6 @@
 
   .service-main{
     grid-area: title;
-    font-size: 32px;
     text-align: center;
   }
   .service-desc{
@@ -180,7 +171,6 @@
   .service-progress{ max-width: 220px; }
 
   .pc-order-track{ --cols: 3; --gap: 18px; }
-  .pc-order-main{ font-size: 32px; }
   .pc-order-img{ padding: 20px 16px 10px; }
   .pc-order-img img{ height: 160px; max-width: 210px; }
 
@@ -209,7 +199,6 @@
 
   .review-main{
     grid-area: title;
-    font-size: 30px;
     line-height: 1.1;
     margin: 0;
   }
@@ -282,7 +271,6 @@
     align-items: center;
     text-align: center;
   }
-  .slide-main { font-size: 24px; }
   .slide-sub { font-size: 14px; line-height: 1.5; }
   .slide-cta { width: 110px; height: 36px; }
   .slide-cta a { font-size: 14px; }
@@ -293,7 +281,6 @@
   .service { padding: 60px 0 36px; }
   .contact { padding: 60px 0 40px; }
   .page-btn { padding: 40px 0; }
-  .service-main { font-size: 28px; }
   .service-desc { font-size: 14px; }
   .service-card { flex: 0 0 100%; height: 320px; }
   .service-copy { font-size: 16px; }
@@ -330,7 +317,6 @@
     min-width: 0;
   }
 
-  .review-main{ font-size: 24px; }
   .review-view-all{ font-size: 14px; }
 
   .review-thumb{
@@ -354,7 +340,6 @@
 }
 
 .contact-title{
-  font-size:26px;
   text-align: left;
 }
 
@@ -511,9 +496,6 @@
     text-align: center;
   }
 
-  .slide-main { 
-    font-size: 20px;
-   }
 
   .slide-sub {
      font-size: 14px;
@@ -523,9 +505,6 @@
     padding: 64px 0 32px;
   }
 
-  .service-main{
-    font-size: 26px;
-   }
 
   .service-desc{ 
     font-size: 14px; 
@@ -556,9 +535,6 @@
   }
 
 
-  .contact-title{
-  font-size:22px;
-}
 
 .contact-sub{
   font-size:13px;
@@ -607,7 +583,6 @@
   }
   .pc-br{display: block;}
 
-  .slide-main { font-size: 17px; }
   .slide-sub { font-size: 12px; }
   .slide-cta { width: 96px; height: 32px; }
   .slide-cta a { font-size: 12px; }

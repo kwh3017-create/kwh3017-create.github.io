@@ -162,7 +162,8 @@ html, body {
   font-weight: 700;
 }
 
-body.mob-lock{
+body.mob-lock,
+html:has(body.mob-lock){
   overflow: hidden;
 }
 

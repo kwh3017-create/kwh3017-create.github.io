@@ -425,6 +425,8 @@ $(function () {
 
       $popup.css("display", "flex");
       $("body").addClass("mob-lock");
+      // 진행 중인 GSAP 섹션 스냅 애니메이션 즉시 중단
+      if (window.gsap) gsap.killTweensOf(window);
     });
 
     // 팝업 닫기: 닫기 버튼
@@ -517,6 +519,11 @@ $(function () {
     };
 
     const onWheel = (e) => {
+      // 팝업이 열려 있을 때는 섹션 스냅 완전 차단
+      if ($("body").hasClass("mob-lock")) {
+        e.preventDefault();
+        return;
+      }
       if (isAnimating) {
         e.preventDefault();
         return;
@@ -541,6 +548,16 @@ $(function () {
     };
 
     window.addEventListener("wheel", onWheel, { passive: false });
+
+    // 팝업 콘텐츠(.popup-inner, .review-popup-inner) 내 스크롤은 허용
+    // — wheel이 버블링되어 onWheel까지 도달하더라도 mob-lock 체크로 차단되므로
+    //   팝업 내부 스크롤 전용 핸들러로 네이티브 스크롤을 직접 처리
+    document.addEventListener("wheel", (e) => {
+      const inner = e.target.closest(".popup-box, .review-popup-content");
+      if (!inner) return;
+      inner.scrollTop += e.deltaY;
+      e.stopImmediatePropagation();
+    }, { passive: true });
     window.addEventListener("resize", () => {
       sections.forEach((section, i) => {
         if (section.offsetTop <= window.pageYOffset + 1) currentIndex = i;
@@ -573,6 +590,7 @@ $(function () {
     const reviewId = $(this).data("review");
     $("#review-popup-" + reviewId).css("display", "flex");
     $("body").addClass("mob-lock");
+    if (window.gsap) gsap.killTweensOf(window);
   });
   $(document).on("click", ".review-popup-close", function () {
     $(this).closest(".review-popup").hide();

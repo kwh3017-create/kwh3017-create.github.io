@@ -520,8 +520,8 @@
   justify-content: space-between;
   gap: 16px;
   padding: 22px 0;
-  font-size: 16px;
-  font-weight: 400; /* body-16, regular */
+  font-size: 18px;
+  font-weight: 400; /* body-18, regular */
   color: var(--fontmain);
   background: none;
   border: none;
@@ -556,7 +556,7 @@
 }
 
 .faq-a p {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--fontsub);
   line-height: 1.9;
 }
@@ -566,7 +566,7 @@
    ============================================= */
 .info-cta {
   position: relative;
-  background-image: url("/assets/img/info-banner.png");
+  background-image: url("../img/info-banner.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -767,8 +767,8 @@
 
   .info-faq { padding: 56px 0 72px; }
   .info-faq-title { font-size: 28px; }
-  .faq-q { font-size: 15px; }
-  .faq-a p { font-size: 14px; }
+  .faq-q { font-size: 17px; }
+  .faq-a p { font-size: 16px; }
 
   .info-cta { padding: 52px 0; }
   .info-cta-title { font-size: 20px; }
@@ -823,5 +823,5 @@
   .info-section-title { font-size: 20px; }
 
   .info-faq-title { font-size: 22px; }
-  .faq-q { font-size: 14px; padding: 18px 0; }
+  .faq-q { font-size: 16px; padding: 18px 0; }
 }
