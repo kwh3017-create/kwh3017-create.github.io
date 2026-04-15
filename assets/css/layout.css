@@ -12,12 +12,14 @@ html, body {
   left: 0;
   right: 0;
   z-index: 100;
-  background: #fff;
-  border-bottom: 1px solid rgba(0,0,0,.08);
-  transition: box-shadow 0.25s;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
 .header.scrolled {
+  background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,.08);
   box-shadow: 0 2px 16px rgba(0,0,0,.10);
 }
 
@@ -32,6 +34,12 @@ html, body {
 .logo{
   font-size: 24px;
   font-weight: 700; /* body-24, bold */
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.header.scrolled .logo{
+  color: var(--fontmain);
 }
 
 .logo-point{
@@ -57,9 +65,14 @@ html, body {
 .menu-item > a{
   display: block;
   padding: 10px 6px;
-  color: var(--fontmain);
+  color: #fff;
   font-size: 18px;
   font-weight: 500; /* body-18, medium */
+  transition: color 0.3s;
+}
+
+.header.scrolled .menu-item > a{
+  color: var(--fontmain);
 }
 
 .menu-item.has-sub::after{
@@ -111,8 +124,13 @@ html, body {
 
 .locale-btn{
   font-size: 16px;
-  color: #333;
+  color: #fff;
   padding: 8px 6px;
+  transition: color 0.3s;
+}
+
+.header.scrolled .locale-btn{
+  color: #333;
 }
 
 .locale-btn:hover{
