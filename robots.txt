@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gti-system.co.kr/sitemap.xml
+Sitemap: https://kwh3017-create.github.io/sitemap.xml
