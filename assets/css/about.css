@@ -332,7 +332,6 @@
   font-size: 18px;
   font-weight: 400; /* body-18, regular */
   color: var(--fontsub);
-  line-height: 1.8;
   text-align: center;
 }
 
@@ -508,9 +507,17 @@
   width: 100%;
   border-collapse: collapse;
   margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+.location-table tbody {
+  width: 100%;
 }
 
 .location-table tr {
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid rgba(0,0,0,.08);
 }
 
@@ -521,7 +528,7 @@
 .location-table th {
   width: 120px;
   padding: 18px 0;
-  font-size: 14px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--fontsub);
   text-align: left;
@@ -530,7 +537,7 @@
 
 .location-table td {
   padding: 18px 0;
-  font-size: 16px; /* body-16, regular */
+  font-size: 18px;
   color: var(--fontmain);
   font-weight: 400;
   line-height: 1.6;
